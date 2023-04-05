@@ -11,8 +11,8 @@
  *    [0, 1, 2, 3, 4, 5], 5    => 5
  */
 function findElement(arr, value) {
-    throw new Error('Not implemented');
-  }
+	throw new Error("Not implemented");
+}
 
 /**
  * Returns the doubled array - elements of the specified array are repeated twice
@@ -27,8 +27,8 @@ function findElement(arr, value) {
  *    [] => []
  */
 function doubleArray(arr) {
-    throw new Error('Not implemented');
-  }
+	throw new Error("Not implemented");
+}
 
 /**
  * Returns an array of positive numbers from the specified array in original order
@@ -42,8 +42,8 @@ function doubleArray(arr) {
  *    [] => []
  */
 function getArrayOfPositives(arr) {
-    throw new Error('Not implemented');
-  }
+	throw new Error("Not implemented");
+}
 
 /**
  * Removes falsy values from the specified array
@@ -59,8 +59,8 @@ function getArrayOfPositives(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-    throw new Error('Not implemented');
-  }
+	throw new Error("Not implemented");
+}
 
 /**
  * Returns the array of string lengths from the specified string array.
@@ -73,8 +73,8 @@ function removeFalsyValues(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-    throw new Error('Not implemented');
-  }
+	throw new Error("Not implemented");
+}
 
 /**
  * Returns the sum of all items in the specified array of numbers
@@ -89,14 +89,14 @@ function getStringsLength(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-    throw new Error('Not implemented');
-  }
+	throw new Error("Not implemented");
+}
 
 module.exports = {
-    findElement,
-    doubleArray,
-    getArrayOfPositives,
-    removeFalsyValues,
-    getStringsLength,
-    getItemsSum,
+	findElement,
+	doubleArray,
+	getArrayOfPositives,
+	removeFalsyValues,
+	getStringsLength,
+	getItemsSum,
 };
