@@ -98,10 +98,10 @@ function isPrime(n) {
 }
 
 module.exports = {
-	getRectangleArea: getRectangleArea,
-	getAverage: getAverage,
-	getLinearEquationRoot: getLinearEquationRoot,
-	getLastDigit: getLastDigit,
-	parseNumberFromString: parseNumberFromString,
-	isPrime: isPrime,
+	getRectangleArea,
+	getAverage,
+	getLinearEquationRoot,
+	getLastDigit,
+	parseNumberFromString,
+	isPrime,
 };
