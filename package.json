@@ -20,6 +20,7 @@
 	},
 	"homepage": "https://github.com/vaibhav-1508/js_assignment#readme",
 	"devDependencies": {
-		"jest": "^29.5.0"
+		"jest": "^29.5.0",
+		"jest-html-reporters": "^3.1.4"
 	}
 }

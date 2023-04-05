@@ -1,0 +1,12 @@
+{
+	"reporters": [
+		"default",
+		[
+			"jest-html-reporters",
+			{
+				"filename": "index.html",
+				"pageTitle": "JS Assignments"
+			}
+		]
+	]
+}
