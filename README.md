@@ -1,2 +1,1 @@
-# js_assignment
-# js_assignment
+# JS Assignmets
