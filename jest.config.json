@@ -5,7 +5,9 @@
 			"jest-html-reporters",
 			{
 				"filename": "index.html",
-				"pageTitle": "JS Assignments"
+				"pageTitle": "JS Assignments",
+				"openReport": true,
+				"hideIcon": true
 			}
 		]
 	],
