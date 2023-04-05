@@ -1,1 +1,1 @@
-# JS Assignmets
+# JS Assignments
