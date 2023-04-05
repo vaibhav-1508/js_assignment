@@ -12,7 +12,7 @@ function getScore(jestObject) {
 		});
 	});
 
-	console.log("\n\n\n");
+	console.log("\n\n");
 	console.log(`You scored ${score}/${totalScore} points.`);
 
 	return jestObject;

@@ -7,13 +7,13 @@ const {
 	isPrime,
 } = require("../src/numbers");
 
-test(`Testing getRectangleArea`, () => {
+test(`(3 pts) Testing getRectangleArea`, () => {
 	expect(getRectangleArea(5, 10)).toEqual(50);
 	expect(getRectangleArea(5, 5)).toEqual(25);
 	expect(getRectangleArea(5, 0)).toEqual(0);
 });
 
-test(`Testing getAverage`, () => {
+test(`(3 pts) Testing getAverage`, () => {
 	expect(getRectangleArea(5, 5)).toEqual(5);
 	expect(getRectangleArea(10, 0)).toEqual(5);
 	expect(getRectangleArea(-5, 5)).toEqual(0);
@@ -21,13 +21,13 @@ test(`Testing getAverage`, () => {
 	expect(getAverage(Number.MAX_VALUE - 2, Number.MAX_VALUE)).toEqual(Number.MAX_VALUE - 1);
 });
 
-test(`Testing getLinearEquationRoot`, () => {
+test(`(3 pts) Testing getLinearEquationRoot`, () => {
 	expect(getLinearEquationRoot(5, -10)).toEqual(2);
 	expect(getLinearEquationRoot(1, 8)).toEqual(-8);
 	expect(getLinearEquationRoot(5, 0)).toEqual(0);
 });
 
-test(`Testing getLastDigit`, () => {
+test(`(2 pts) Testing getLastDigit`, () => {
 	expect(getLastDigit(100)).toEqual(0);
 	expect(getLastDigit(37)).toEqual(7);
 	expect(getLastDigit(5)).toEqual(5);
@@ -35,13 +35,13 @@ test(`Testing getLastDigit`, () => {
 	expect(getLastDigit(-19)).toEqual(9);
 });
 
-test(`Testing parseNumberFromString`, () => {
+test(`(2 pts) Testing parseNumberFromString`, () => {
 	expect(parseNumberFromString("100")).toEqual(100);
 	expect(parseNumberFromString("37")).toEqual(37);
 	expect(parseNumberFromString("-525.25")).toEqual(-525.25);
 });
 
-test(`Testing isPrime`, () => {
+test(`(10 pts) Testing isPrime`, () => {
 	expect(isPrime(1)).toBeFalsy();
 	expect(isPrime(4)).toBeFalsy();
 	expect(isPrime(6)).toBeFalsy();
