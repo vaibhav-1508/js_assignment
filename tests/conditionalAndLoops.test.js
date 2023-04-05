@@ -9,7 +9,7 @@ const {
 	toNaryString,
 } = require("../src/conditionalAndLoops");
 
-test(`Testing getFizzBuzz`, () => {
+test(`(5 pts) Testing getFizzBuzz`, () => {
 	// Get numbers
 	[
 		1, 2, 4, 7, 8, 11, 13, 14, 16, 17, 19, 22, 23, 26, 28, 29, 31, 32, 34, 37, 38, 41, 43, 44, 47,
@@ -32,13 +32,13 @@ test(`Testing getFizzBuzz`, () => {
 	[15, 30, 45, 60, 75, 90].forEach((num) => expect(getFizzBuzz(num)).toEqual("FizzBuzz"));
 });
 
-test(`Testing getFactorial`, () => {
+test(`(10 pts) Testing getFactorial`, () => {
 	expect(getFactorial(1)).toEqual(1);
 	expect(getFactorial(5)).toEqual(120);
 	expect(getFactorial(10)).toEqual(3628800);
 });
 
-test(`Testing getSumBetweenNumbers`, () => {
+test(`(10 pts) Testing getSumBetweenNumbers`, () => {
 	[
 		{ n1: 1, n2: 2, expected: 3 },
 		{ n1: 5, n2: 10, expected: 45 },
@@ -46,7 +46,7 @@ test(`Testing getSumBetweenNumbers`, () => {
 	].forEach((data) => expect(getSumBetweenNumbers(data.n1, data.n2)).toEqual(data.expected));
 });
 
-test(`Testing isTriangle`, () => {
+test(`(15 pts) Testing isTriangle`, () => {
 	[
 		{ sides: [1, 2, 3], expected: false },
 		{ sides: [3, 4, 5], expected: true },
@@ -68,7 +68,7 @@ test(`Testing isTriangle`, () => {
 	});
 });
 
-test(`Testing reverseString`, () => {
+test(`(5 pts) Testing reverseString`, () => {
 	[
 		{
 			str: "The quick brown fox jumps over the lazy dog",
@@ -80,7 +80,7 @@ test(`Testing reverseString`, () => {
 	].forEach((data) => expect(reverseString(data.str)).toEqual(data.expected));
 });
 
-test(`Testing isBracketBalanced`, () => {
+test(`(30 pts) Testing isBracketBalanced`, () => {
 	// Check for balanced sequences
 	[
 		"[]",
@@ -118,7 +118,7 @@ test(`Testing isBracketBalanced`, () => {
 	].forEach((seq) => expect(isBracketsBalanced(seq)).toBeFalsy());
 });
 
-test(`Testing toNaryString`, () => {
+test(`(30 pts) Testing toNaryString`, () => {
 	[
 		{ num: 1024, n: 2, expected: "10000000000" },
 		{ num: 6561, n: 3, expected: "100000000" },
@@ -133,7 +133,7 @@ test(`Testing toNaryString`, () => {
 	].forEach((data) => expect(toNaryString(data.num, data.n)).toEqual(data.expected));
 });
 
-test(`Testing timespanToHumanString`, () => {
+test(`(40 pts) Testing timespanToHumanString`, () => {
 	[
 		{
 			startDate: "2000-01-01 01:00:00.100",

@@ -8,5 +8,6 @@
 				"pageTitle": "JS Assignments"
 			}
 		]
-	]
+	],
+	"testResultsProcessor": "./testsScore"
 }
