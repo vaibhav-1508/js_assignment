@@ -1,7 +1,7 @@
 {
 	"name": "js_assignment",
 	"version": "1.0.0",
-	"description": "",
+	"description": "Assignment to check basic familiarity with JS functions and primitives!",
 	"main": "index.js",
 	"directories": {
 		"test": "tests"
@@ -11,14 +11,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/vaibhav-1508/js_assignment.git"
+		"url": "git+https://github.com/eshaanagg/js_assignment.git"
 	},
 	"author": "EshaanAgg",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/vaibhav-1508/js_assignment/issues"
+		"url": "https://github.com/eshaanagg/js_assignment/issues"
 	},
-	"homepage": "https://github.com/vaibhav-1508/js_assignment#readme",
+	"homepage": "https://github.com/eshaanagg/js_assignment#readme",
 	"devDependencies": {
 		"jest": "^29.5.0",
 		"jest-html-reporters": "^3.1.4"
