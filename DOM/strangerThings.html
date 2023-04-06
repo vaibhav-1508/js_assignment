@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link type="text/css" href="styles.css?ref=v1" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</head>
+
+<body style="background-color: black;">
+    <div class="slide flex flex-col">
+        <ul class="wire" id="setOne">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="keypad">
+            <div class="eachKey">
+                A
+            </div>
+            <div class="eachKey">
+                B
+            </div>
+            <div class="eachKey">
+                C
+            </div>
+            <div class="eachKey">
+                D
+            </div>
+            <div class="eachKey">
+                E
+            </div>
+            <div class="eachKey">
+                F
+            </div>
+            <div class="eachKey">
+                G
+            </div>
+            <div class="eachKey">
+                H
+            </div>
+        </div><br />
+        <ul class="wire" id="setTwo" style="position: relative; margin-top: 40px">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="keypad" style="position: relative; margin-top: 0; bottom: 22vh;">
+            <div class="eachKey">
+                I
+            </div>
+            <div class="eachKey">
+                J
+            </div>
+            <div class="eachKey">
+                K
+            </div>
+            <div class="eachKey">
+                L
+            </div>
+            <div class="eachKey">
+                M
+            </div>
+            <div class="eachKey">
+                N
+            </div>
+            <div class="eachKey">
+                O
+            </div>
+            <div class="eachKey">
+                P
+            </div>
+            <div class="eachKey">
+                Q
+            </div>
+        </div>
+        <ul class="wire" id="setThree" style="position: relative; margin-top: 40px">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="keypad" style="position: relative; margin-top: 0; bottom: 22vh;">
+            <div class="eachKey">
+                R
+            </div>
+            <div class="eachKey">
+                S
+            </div>
+            <div class="eachKey">
+                T
+            </div>
+            <div class="eachKey">
+                U
+            </div>
+            <div class="eachKey">
+                V
+            </div>
+            <div class="eachKey">
+                W
+            </div>
+            <div class="eachKey">
+                X
+            </div>
+            <div class="eachKey">
+                Y
+            </div>
+            <div class="eachKey">
+                Z
+            </div>
+        </div>
+        <div style="position: relative; margin-left: 40vw; bottom: 8vw;">
+                <input type="text" id="message" placeholder="Enter the message here">
+                <button type="button" onclick="illuminateLight()"
+                    style="background-color: aliceblue; color:black;">CLICK
+                    ME</button>
+        </div>
+        <style>
+            .wire {
+                text-align: center;
+                white-space: nowrap;
+                position: absolute;
+                padding: 0;
+                width: 100%;
+                top: -80px;
+                border-bottom: 1px solid black;
+                height: 100px;
+            }
+
+            .wire li {
+                position: relative;
+                list-style: none;
+                margin: 0 15px;
+                padding: 0;
+                display: inline-block;
+                width: 15px;
+                height: 25px;
+                border-radius: 50%;
+                top: 102px;
+                background: white;
+            }
+
+            .wire li:before {
+                content: "";
+                position: absolute;
+                width: 14px;
+                height: 10px;
+                border-radius: 4px;
+                top: -5px;
+                left: 0;
+                background-color: black;
+            }
+
+            .wire li:nth-child(odd) {
+                background-color: rgba(0, 153, 255, 0.8);
+                box-shadow: 0px 2px 20px 4px rgba(0, 153, 255, 0.8);
+            }
+
+            .wire li:nth-child(even) {
+                background-color: rgba(255, 105, 180, 0.9);
+                box-shadow: 0px 2px 20px 4px rgba(255, 105, 180, 0.9);
+            }
+
+            @keyframes third-flash {
+
+                0%,
+                100% {
+                    background-color: rgba(15, 100, 60, 0.9);
+                    box-shadow: 0px 2px 20px 4px rgba(15, 100, 60, 0.9);
+                }
+
+                50% {
+
+                    background-color: rgba(15, 100, 60, 0.5);
+                    box-shadow: 0px 2px 20px 4px rgba(240, 255, 0, 0.5);
+                }
+            }
+
+            @keyframes even-flash {
+
+                0%,
+                100% {
+                    background-color: rgba(255, 105, 180, 0.9);
+                    box-shadow: 0px 2px 20px 4px rgba(255, 105, 180, 0.9);
+                }
+
+                50% {
+
+                    background-color: rgba(255, 105, 180, 0.5);
+                    box-shadow: 0px 2px 20px 4px rgba(240, 255, 0, 0.5);
+                }
+            }
+
+            @keyframes odd-flash {
+                50% {
+                    background-color: rgba(0, 153, 255, 0.8);
+                    box-shadow: 0px 2px 20px 4px rgba(240, 255, 0, 0.5);
+                }
+
+                0%,
+                100% {
+
+                    background-color: rgba(0, 153, 255, 0.5);
+                    box-shadow: 0px 2px 20px 4px rgba(0, 153, 255, 0.5);
+                }
+            }
+
+            .eachKey {
+                height: 30px;
+                width: 30px;
+                background-color: rgba(0, 0, 0, 0.7);
+                color: white;
+                font-size: 1rem;
+                border-radius: 50%;
+                text-align: center;
+                float: left;
+                margin: 2%;
+                box-shadow: 0.25rem 0.25rem 0.5rem 0.75rem rgba(255, 255, 255, 0.2);
+            }
+
+            .keypad {
+                position: relative;
+                margin-top: 20vh;
+                margin-left: 25%;
+                height: auto;
+                width: 100%;
+
+                text-align: center;
+                color: white;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+        </style>
+        <script src="../src/strangerThings.js"></script>
+</body>
+
+</html>
