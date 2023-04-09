@@ -1,15 +1,20 @@
+const BULB_ON_URL = "https://i.postimg.cc/6QyTynzr/bulb-on.png";
+const BULB_OFF_URL = "https://i.postimg.cc/KjK1wL3c/bulb-off.png";
 
-function lightSwitch() {
-    let switchTrigger = document.getElementById('flexSwitchCheckChecked').checked;
-    switchTrigger == true ? bulb_on() : bulb_off();
-    console.log(switchTrigger);
-}
+/*
+TODO:
+Fetch the status of the 'flexSwitchCheckChecked' checkbox and call the appropiate function to turn the bulb on or off
+*/
+function lightSwitch() {}
 
+/*
+TODO:
+Set the "bulb" element's Image src to be the image specified by BULB_ON_URL
+*/
+function bulb_on() {}
 
-function bulb_on(){
-    document.getElementById('bulb').src='https://i.postimg.cc/6QyTynzr/bulb-on.png';
-}
-function bulb_off(){
-    document.getElementById('bulb').src='https://i.postimg.cc/KjK1wL3c/bulb-off.png';
-}
-
+/*
+TODO:
+Set the "bulb" element's Image src to be the image specified by BULB_ON_URL
+*/
+function bulb_off() {}
