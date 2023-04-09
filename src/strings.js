@@ -124,11 +124,11 @@ function convertToUpperCase(str) {
  *          'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(str) {
-	let str="";
-	for(let i=0;i<str.length;i++)
+function encodeToRot13(stringToEncode) {
+	let encoded="";
+	for(let i=0;i<stringToEncode.length;i++)
 	{
-		let cc=str.charCodeAt(i)
+		let cc=stringToEncode.charCodeAt(i)
 		if(cc>=65 && cc<=(65+26))//capital
 		{
 			cc=(cc+13)%(65+26);
@@ -137,9 +137,9 @@ function encodeToRot13(str) {
 		{
 			cc=(cc+13)%(97+26);
 		}
-		str+=String.fromCharCode(cc);
+		encoded+=String.fromCharCode(cc);
 	}
-
+	return encoded;
 }
 
 module.exports = {

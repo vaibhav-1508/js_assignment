@@ -16,7 +16,7 @@ function getRectangleArea(width, height) {
 /**
  * Returns an average of two given numbers.
  *
- * @param {numder} value1
+ * @param {number} value1
  * @param {number} value2
  * @return {number}
  *
