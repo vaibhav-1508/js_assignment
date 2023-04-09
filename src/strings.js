@@ -11,7 +11,7 @@
  *   '',  'bb'  => 'bb'
  */
 function concatenateStrings(value1, value2) {
-	throw new Error("Not implemented");
+	return value1+value2;
 }
 
 /**
@@ -26,7 +26,7 @@ function concatenateStrings(value1, value2) {
  *   ''      => 0
  */
 function getStringLength(value) {
-	throw new Error("Not implemented");
+	return value.length
 }
 
 /**
@@ -40,9 +40,9 @@ function getStringLength(value) {
  *   'cat'       => 'c'
  */
 function getFirstChar(value) {
-	throw new Error("Not implemented");
+	return value.charAt(0)
 }
-
+console.log(getFirstChar("aaaa"))
 /**
  * Removes a leading and trailing whitespace characters from string.
  *
@@ -55,7 +55,7 @@ function getFirstChar(value) {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(value) {
-	throw new Error("Not implemented");
+	return value.trim();
 }
 
 /**
@@ -70,7 +70,10 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'cat', 3 => 'catcatcat'
  */
 function repeatString(value, count) {
-	throw new Error("Not implemented");
+	let ret="";
+	while(count-->0)
+	ret+=value;
+	return ret;
 }
 
 /**
@@ -86,7 +89,9 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-	throw new Error("Not implemented");
+	if(!str.includes(value))
+	return str;
+	return str.substring(0,str.indexOf(value))+str.substring(str.indexOf(value)+value.length)
 }
 
 /**
@@ -100,7 +105,7 @@ function removeFirstOccurrences(str, value) {
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
 function convertToUpperCase(str) {
-	throw new Error("Not implemented");
+	return str.toUpperCase()
 }
 
 /**
@@ -120,7 +125,21 @@ function convertToUpperCase(str) {
  *
  */
 function encodeToRot13(str) {
-	throw new Error("Not implemented");
+	let str="";
+	for(let i=0;i<str.length;i++)
+	{
+		let cc=str.charCodeAt(i)
+		if(cc>=65 && cc<=(65+26))//capital
+		{
+			cc=(cc+13)%(65+26);
+		}
+		if(cc>=97 && cc<=(97+26))//small
+		{
+			cc=(cc+13)%(97+26);
+		}
+		str+=String.fromCharCode(cc);
+	}
+
 }
 
 module.exports = {
