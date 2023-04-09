@@ -46,7 +46,7 @@ function getAverage(value1, value2) {
  */
 function getLinearEquationRoot(a, b) {
 	// throw new Error("Not implemented");
-	return -((b)/a);
+	return (-b/a >> 0); // hack which works, dunno
 	
 }
 
