@@ -63,7 +63,7 @@ function getArrayOfPositives(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-	return arr.filter(elem=> (elem!=null && elem!=undefined && elem!=false && elem!='' && elem!=NaN && elem!=0))
+	return arr.filter(elem=> (elem!=null && elem!=undefined && elem!=false && elem!='' && (""+elem)!="NaN" && elem!=0))
 }
 
 /**

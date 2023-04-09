@@ -131,11 +131,11 @@ function encodeToRot13(stringToEncode) {
 		let cc=stringToEncode.charCodeAt(i)
 		if(cc>=65 && cc<=(65+26))//capital
 		{
-			cc=(cc+13)%(65+26);
+			cc=65+(cc+13-65)%(26);
 		}
 		if(cc>=97 && cc<=(97+26))//small
 		{
-			cc=(cc+13)%(97+26);
+			cc=97+(cc+13-97)%(26);
 		}
 		encoded+=String.fromCharCode(cc);
 	}

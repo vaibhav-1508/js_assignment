@@ -131,7 +131,30 @@ function reverseString(str) {
  *   '{[(<{[]}>)]}' = true
  */
 function isBracketsBalanced(str) {
-	
+	let stack=[];
+	let bracsOpen="{[(<";
+	let bracsClos="}])>"
+	let closerOf=function(m)
+	{
+		return bracsClos.charAt(bracsOpen.indexOf(m))
+	}
+	for(let i=0;i<str.length;i++)
+	{
+		let c=str.charAt(i);
+		if(bracsOpen.includes(c))
+		{
+			stack.push(c);
+		}
+		else
+		{
+			let k=stack.pop();
+			let clo=closerOf(k);
+			if(c!=clo)
+			return false
+		}
+	}
+	return(stack.length==0)
+
 }
 
 /**
@@ -166,9 +189,39 @@ function isBracketsBalanced(str) {
  *
  */
 function timespanToHumanString(startDate, endDate) {
-	throw new Error("Not implemented");
-}
+	let interval=(endDate.valueOf()-startDate.valueOf())*0.001
+	
 
+
+	if(interval>0 && interval <=45)
+	return "a few seconds ago"
+
+
+	if(interval>45 && interval<=90)
+	return "a minute ago"
+	if(interval>90 && interval<=120)
+	return "2 minutes ago"
+	if(interval>120 && interval<=(45*60))
+	return `${Math.floor(interval/60)} minutes ago`
+
+
+	
+	if(interval>45*60  && interval <=90*60)
+	return "an hour ago"
+	if(interval>90*60 && interval<=(120*60))
+	return `2 hours ago`
+
+	if(interval>120*60 && interval<=(22*60*60))
+	{
+		console.log(interval, interval/(60*60))
+		let k=Math.round(interval/(60*60));
+		return `${Math.ceil(k-0.5)} hours ago`
+	}
+	if(interval>22*60*60 && interval< 36*60*60)
+	return "a day ago"
+}
+console.log(timespanToHumanString(new Date('2000-01-01 01:00:00.000'),new Date('2000-01-01 05:30:00.001')))
+console.log(timespanToHumanString(new Date('2000-01-01 01:00:00.000'),new Date('2000-01-01 05:30:00.000')))
 /**
  * Returns the string with n-ary (binary, ternary, etc, where n<=10) representation of
  * specified number.

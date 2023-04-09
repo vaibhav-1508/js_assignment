@@ -15,10 +15,10 @@ describe("Numbers", () => {
 	});
 
 	test(`(3 pts) Testing getAverage`, () => {
-		expect(getRectangleArea(5, 5)).toEqual(5);
-		expect(getRectangleArea(10, 0)).toEqual(5);
-		expect(getRectangleArea(-5, 5)).toEqual(0);
-		expect(getRectangleArea(6, 5)).toEqual(5.5);
+		expect(getAverage(5, 5)).toEqual(5);
+		expect(getAverage(10, 0)).toEqual(5);
+		expect(getAverage(-5, 5)).toEqual(0);
+		expect(getAverage(6, 5)).toEqual(5.5);
 		expect(getAverage(Number.MAX_VALUE - 2, Number.MAX_VALUE)).toEqual(Number.MAX_VALUE - 1);
 	});
 
