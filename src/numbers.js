@@ -64,7 +64,7 @@ function getLinearEquationRoot(a, b) {
  */
 function getLastDigit(value) {
 	//throw new Error("Not implemented");
-	return value % 10;
+	return Math.abs(value) % 10;
 }
 
 /**
@@ -101,7 +101,15 @@ function parseNumberFromString(value) {
  *   17 => true
  */
 function isPrime(n) {
-	throw new Error("Not implemented");
+	// throw new Error("Not implemented");
+	if (n == 2) {return true;}
+	if ((n == 1) || ((n % 2 == 0))){
+		return false;
+	}
+	for(let i = 3; i * i <= n; i += 2){
+		if (n%i == 0){ return false;}
+	}
+	return true;
 }
 
 module.exports = {
