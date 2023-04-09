@@ -1,135 +1,121 @@
 /**
- * Returns the result of concatenation of two strings.
+ * Returns an area of a rectangle given by width and heigth.
  *
- * @param {string} value1
- * @param {string} value2
- * @return {string}
+ * @param {numder} width
+ * @param {number} height
+ * @return {number}
  *
- * @example
- *   'aa', 'bb' => 'aabb'
- *   'aa',''    => 'aa'
- *   '',  'bb'  => 'bb'
+ * @example:
+ *   5, 10 => 50
+ *   5, 5  => 25
  */
-function concatenateStrings(value1, value2) {
-	throw new Error("Not implemented");
+function getRectangleArea(width, height) {
+	// throw new Error("Not implemented");
+	return width*height;
 }
 
 /**
- * Returns the length of given string.
+ * Returns an average of two given numbers.
+ *
+ * @param {numder} value1
+ * @param {number} value2
+ * @return {number}
+ *
+ * @example:
+ *   5, 5  => 5
+ *  10, 0  => 5
+ *  -3, 3  => 0
+ */
+function getAverage(value1, value2) {
+	// throw new Error("Not implemented");
+	return (value1+value2)/2;
+}
+
+/**
+ * Returns a root of linear equation a*x + b = 0 given by coefficients a and b.
+ *
+ * @param {number} a
+ * @param {number} b
+ * @return {number}
+ *
+ * @example:
+ *   5*x - 10 = 0    => 2
+ *   x + 8 = 0       => -8
+ *   5*x = 0         => 0
+ */
+function getLinearEquationRoot(a, b) {
+	// throw new Error("Not implemented");
+	return -b/a;
+}
+
+/**
+ * Returns a last digit of a integer number.
+ *
+ * @param {number} value
+ * @return {number}
+ *
+ * @example:
+ *   100     => 0
+ *    37     => 7
+ *     5     => 5
+ *     0     => 0
+ */
+function getLastDigit(value) {
+	// throw new Error("Not implemented");
+	return value%10;
+}
+
+/**
+ * Returns a number by given string representation.
  *
  * @param {string} value
  * @return {number}
  *
- * @example
- *   'aaaaa' => 5
- *   'b'     => 1
- *   ''      => 0
+ * @example:
+ *    '100'     => 100
+ *     '37'     => 37
+ * '-525.5'     => -525.5
  */
-function getStringLength(value) {
-	throw new Error("Not implemented");
+function parseNumberFromString(value) {
+	// throw new Error("Not implemented");
+	// return value;
+	return parseFloat(value);
 }
 
 /**
- * Returns a first char of the given string.
+ * Returns true is the number is prime; otherwise false.
+ * See: https://en.wikipedia.org/wiki/Primality_test
  *
- * @param {string} value
- * @return {string}
+ * @param {number} n
+ * @return {bool}
  *
- * @example
- *   'John Doe'  => 'J'
- *   'cat'       => 'c'
+ * @example:
+ *   4 => false
+ *   5 => true
+ *   6 => false
+ *   7 => true
+ *   11 => true
+ *   12 => false
+ *   16 => false
+ *   17 => true
  */
-function getFirstChar(value) {
-	throw new Error("Not implemented");
-}
-
-/**
- * Removes a leading and trailing whitespace characters from string.
- *
- * @param {string} value
- * @return {string}
- *
- * @example
- *   '  Abracadabra'    => 'Abracadabra'
- *   'cat'              => 'cat'
- *   '\tHello, World! ' => 'Hello, World!'
- */
-function removeLeadingAndTrailingWhitespaces(value) {
-	throw new Error("Not implemented");
-}
-
-/**
- * Returns a string that repeated the specified number of times.
- *
- * @param {string} value
- * @param {string} count
- * @return {string}
- *
- * @example
- *   'A', 5  => 'AAAAA'
- *   'cat', 3 => 'catcatcat'
- */
-function repeatString(value, count) {
-	throw new Error("Not implemented");
-}
-
-/**
- * Remove the first occurrence of string inside another string
- *
- * @param {string} str
- * @param {string} value
- * @return {string}
- *
- * @example
- *   'To be or not to be', 'not'  => 'To be or to be'
- *   'I like legends', 'end' => 'I like legs',
- *   'ABABAB','BA' => 'ABAB'
- */
-function removeFirstOccurrences(str, value) {
-	throw new Error("Not implemented");
-}
-
-/**
- * Converts all characters of the specified string into the upper case
- *
- * @param {string} str
- * @return {string}
- *
- * @example
- *   'Thunderstruck' => 'THUNDERSTRUCK'
- *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
- */
-function convertToUpperCase(str) {
-	throw new Error("Not implemented");
-}
-
-/**
- * Encode specified string with ROT13 cipher
- * See details:  https://en.wikipedia.org/wiki/ROT13
- *
- * @param {string} str
- * @return {string}
- *
- * @example
- *
- *   'hello' => 'uryyb'
- *   'Why did the chicken cross the road?' => 'Jul qvq gur puvpxra pebff gur ebnq?'
- *   'Gb trg gb gur bgure fvqr!' => 'To get to the other side!'
- *   'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' =>
- *          'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
- *
- */
-function encodeToRot13(str) {
-	throw new Error("Not implemented");
+function isPrime(n) {
+	// throw new Error("Not implemented");
+	var flag=0;
+	for(let i=0;i<=Math.sqrt(n);i++){
+		if(n%i==0){
+			flag++;
+			break;
+		}
+	}
+	return flag;
 }
 
 module.exports = {
-	concatenateStrings,
-	getStringLength,
-	getFirstChar,
-	removeLeadingAndTrailingWhitespaces,
-	repeatString,
-	removeFirstOccurrences,
-	convertToUpperCase,
-	encodeToRot13,
+	getRectangleArea,
+	getAverage,
+	getLinearEquationRoot,
+	getLastDigit,
+	parseNumberFromString,
+	isPrime,
 };
