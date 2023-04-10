@@ -18,8 +18,13 @@
  *  21 => 'Fizz'
  *
  */
-function getFizzBuzz(num) {
-	throw new Error("Not implemented");
+function getFizzBuzz(n) {
+	// throw new Error("Not implemented");
+	let s = "";
+	if( n % 3 == 0) s += "Fizz";
+	if (n%5 == 0) s += "Buzz";
+	if ((n%3)*(n%5)) s = n;
+	return s;
 }
 
 /**
@@ -34,7 +39,8 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
-	throw new Error("Not implemented");
+	// throw new Error("Not implemented");
+	return n ? (n * getFactorial(n - 1)) : 1;
 }
 
 /**
@@ -50,7 +56,10 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-	throw new Error("Not implemented");
+	// throw new Error("Not implemented");
+	let s = 0;
+	for (let i = n1; i <= n2; i++) {s += i;}
+	return s;
 }
 
 /**
@@ -69,7 +78,8 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a, b, c) {
-	throw new Error("Not implemented");
+	// throw new Error("Not implemented");
+	return ((a > 0 && b > 0 && c > 0) && (a+b-c) > 0 && (b+c-a) > 0 && (c+a-b) > 0)
 }
 
 /**
@@ -85,7 +95,13 @@ function isTriangle(a, b, c) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
-	throw new Error("Not implemented");
+	// throw new Error("Not implemented");
+	let s = ""
+	let n = str.length
+	for (let i = 0; i < n; i++) {
+		s += str[n - 1 - i];
+	}
+	return s;
 }
 
 /**
@@ -107,10 +123,19 @@ function reverseString(str) {
  *   '[[][][[]]]' => true
  *   '[[][]][' => false
  *   '{)' = false
- *   '{[(<{[]}>)]}' = true
+ *   '{[(<{[]}>)]}' = trueelement
  */
 function isBracketsBalanced(str) {
-	throw new Error("Not implemented");
+	// throw new Error("Not implemented");
+	let stck = [];
+	const open = "[({<";
+	const close = "])}>";
+	for (const c of str) {
+		if (open.includes(c)) { stck.push(c); }
+		if (close.includes(c)) {if (stck.length == 0) return false; if ( open[close.indexOf(c)] != stck.pop()) return false ;} 
+	}
+	if (stck.length) return false;
+	return true; 
 }
 
 /**
@@ -144,8 +169,33 @@ function isBracketsBalanced(str) {
  *   Date('2000-01-01 01:00:00.100'), Date('2015-01-02 03:00:05.000')  => '15 years ago'
  *
  */
+function round_down_if_halfway(diff){
+	if ((diff - (diff >> 0)) <= 0.5){ return (diff >> 0);}
+	else {return (diff >> 0) + 1;}
+}
+
 function timespanToHumanString(startDate, endDate) {
-	throw new Error("Not implemented");
+	//throw new Error("Not implemented");
+	const diff_mill = endDate.getTime() - startDate.getTime() ;
+	const secs = diff_mill / 1000;
+	const minutes = secs / 60;
+	const hours = minutes / 60;
+	const days = hours / 24;
+	const months = days / 30;
+	const years = days / 365 ; 
+	let s = "";
+	if (secs <= 45){s = "a few seconds ago";}
+	else if (secs <= 90) {s = "a minute ago";}
+	else if (minutes <= 45) {s = `${ round_down_if_halfway(minutes  )} minutes ago`;}
+	else if (minutes <= 90) {s = "an hour ago";}
+	else if (hours <= 22) {s = `${round_down_if_halfway(hours)} hours ago`;}
+	else if (hours <= 36) { s = "a day ago";}
+	else if (days <= 25) { s = `${round_down_if_halfway(days)} days ago`;}
+	else if (days <= 45) { s = "a month ago";}
+	else if (days <= 345) {s = `${round_down_if_halfway(months)} months ago`;}
+	else if (days <= 545) {s = "a year ago";}
+	else {s = `${round_down_if_halfway(years)} years ago`;}
+	return s;
 }
 
 /**
@@ -169,7 +219,16 @@ function timespanToHumanString(startDate, endDate) {
  *    365, 10 => '365'
  */
 function toNaryString(num, n) {
-	throw new Error("Not implemented");
+	// throw new Error("Not implemented");
+	let s = [];
+	let t =  0;		
+	while (num) {
+		t = num % n;
+		s.unshift(t);
+		num = ((num/n) >> 0); 
+	}
+//	return s.reduce((join,i)=>join + i);
+	return s.join('');
 }
 
 module.exports = {
