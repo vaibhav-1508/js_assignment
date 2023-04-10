@@ -42,7 +42,6 @@ function getStringLength(value) {
 function getFirstChar(value) {
 	return value.charAt(0)
 }
-console.log(getFirstChar("aaaa"))
 /**
  * Removes a leading and trailing whitespace characters from string.
  *

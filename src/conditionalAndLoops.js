@@ -166,7 +166,7 @@ function isBracketsBalanced(str) {
  * ---------------------------------------------------------------------
  *    0 to 45 seconds           |  a few seconds ago
  *   45 to 90 seconds           |  a minute ago
- *   90 seconds to 45 minutes   |  2 minutes ago ... 45 minutes ago
+ *   90 seconds to 45 minutes   |  2 minutes ago ... 45 minutes ago			
  *   45 to 90 minutes           |  an hour ago
  *  90 minutes to 22 hours      |  2 hours ago ... 22 hours ago
  *  22 to 36 hours              |  a day ago
@@ -192,7 +192,6 @@ function timespanToHumanString(startDate, endDate) {
 	let interval=(endDate.valueOf()-startDate.valueOf())*0.001
 	
 
-
 	if(interval>0 && interval <=45)
 	return "a few seconds ago"
 
@@ -213,15 +212,11 @@ function timespanToHumanString(startDate, endDate) {
 
 	if(interval>120*60 && interval<=(22*60*60))
 	{
-		console.log(interval, interval/(60*60))
-		let k=Math.round(interval/(60*60));
-		return `${Math.ceil(k-0.5)} hours ago`
+		
 	}
 	if(interval>22*60*60 && interval< 36*60*60)
 	return "a day ago"
 }
-console.log(timespanToHumanString(new Date('2000-01-01 01:00:00.000'),new Date('2000-01-01 05:30:00.001')))
-console.log(timespanToHumanString(new Date('2000-01-01 01:00:00.000'),new Date('2000-01-01 05:30:00.000')))
 /**
  * Returns the string with n-ary (binary, ternary, etc, where n<=10) representation of
  * specified number.
@@ -252,10 +247,16 @@ function DecToBASE(n,BASE)
 	return 0;
 	else
 	{
-		return DecToBASE(Math.floor(n/BASE),BASE)*10+n%BASE;
+		return DecToBASE(Math.floor(n/BASE),BASE)+""+fathom(n%BASE);
 	}
 }
-
+function fathom(num)
+{
+	if(num<10)
+	return num;
+	else
+	return String.fromCharCode(55+num);
+}
 module.exports = {
 	getFizzBuzz,
 	getFactorial,

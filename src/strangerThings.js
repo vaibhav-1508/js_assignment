@@ -13,7 +13,7 @@ This function should return a list of all the distinct characters in UPPERCASE t
 */
 function getCharacters()
 {
-	return document.querySelector("#message").value.split("");
+	return Array.from(new Set(document.querySelector("#message").value.split("").map(k=>k.toUpperCase())))
 }
 
 /* 

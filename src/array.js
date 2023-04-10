@@ -11,7 +11,6 @@
  *    [0, 1, 2, 3, 4, 5], 5    => 5
  */
 function findElement(arr, value) {
-	console.log(arr.indexOf(value))
 	return arr.indexOf(value)
 }
 
@@ -63,9 +62,8 @@ function getArrayOfPositives(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-	return arr.filter(elem=> (elem!=null && elem!=undefined && elem!=false && elem!='' && (""+elem)!="NaN" && elem!=0))
+	return arr.filter(elem=> !(!elem ||(typeof elem=="number" && isNaN(elem))))
 }
-
 /**
  * Returns the array of string lengths from the specified string array.
  *
