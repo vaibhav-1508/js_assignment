@@ -244,7 +244,7 @@ function toNaryString(num, n) {
 function DecToBASE(n,BASE)
 {
 	if(n==0)
-	return 0;
+	return "";
 	else
 	{
 		return DecToBASE(Math.floor(n/BASE),BASE)+""+fathom(n%BASE);

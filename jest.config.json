@@ -6,7 +6,7 @@
 			{
 				"filename": "test.html",
 				"pageTitle": "JS Assignments",
-				"openReport": false,
+				"openReport": true,
 				"hideIcon": true
 			}
 		]
