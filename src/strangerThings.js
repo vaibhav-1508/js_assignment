@@ -56,7 +56,7 @@ async function setCSS(character) {
 
 async function illuminateLight(index) {
 	const message = getCharacters();
-	console.log(message)
+	
 	/*
     TODO: Can the setCSS function asynchronously for each character present in the message array
     */

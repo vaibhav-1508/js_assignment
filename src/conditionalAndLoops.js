@@ -190,7 +190,6 @@ function isBracketsBalanced(str) {
  */
 function timespanToHumanString(startDate, endDate) {
 	let interval=(endDate.valueOf()-startDate.valueOf())*0.001
-	console.log(interval)
 
 	if(interval>0 && interval <=45)
 	return "a few seconds ago"
@@ -208,7 +207,6 @@ function timespanToHumanString(startDate, endDate) {
 	if(interval>90*60 && interval<=(22*60*60))
 	{
 		let halfhrs=interval/1800
-		//console.log(Math.ceil(halfhrs))
 		return `${Math.floor(Math.ceil(halfhrs)/2)} hours ago`
 	}
 	if(interval>22*60*60 && interval<= 36*60*60)
@@ -218,7 +216,6 @@ function timespanToHumanString(startDate, endDate) {
 	if(interval>36*60*60 &&  interval<=25*24*60*60)
 	{
 		let halfdays=interval/(12*60*60);
-		console.log(halfdays)
 		return `${Math.floor(Math.ceil(halfdays)/2)} days ago`
 	}
 	if(interval>25*24*60*60 && interval<=45*24*60*60)
@@ -228,7 +225,6 @@ function timespanToHumanString(startDate, endDate) {
 	if(interval>45*24*60*60 && interval<=345*24*60*60)
 	{
 		let halfmonths=interval/(15*24*60*60);
-		console.log(halfmonths)
 		return `${Math.floor(Math.ceil(halfmonths)/2)} months ago`
 	}
 	if(interval>345*24*60*60 && interval<=545*24*60*60)
