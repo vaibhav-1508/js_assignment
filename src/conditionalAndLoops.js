@@ -88,12 +88,7 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a, b, c) {
-	if ((a + b > c && b + c > a && a + c > b)) {
-		return true;
-	}
-	else {
-		return false;
-	}
+	return (a + b > c && b + c > a && a + c > b);
 }
 
 /**
@@ -237,13 +232,28 @@ function timespanToHumanString(startDate, endDate) {
  *    365, 10 => '365'
  */
 let str = "";
+let converter = {
+	10: "a",
+	11: "b",
+	12: "c",
+	13: "d",
+	14: "e",
+	15: "f"
+}
 function generate(num, n) {
 	if (num < n) {
 		str += num;
 		return;
 	}
 	generate(Math.floor(num / n), n);
-	str += (num % n);
+	if(num%n < 10)
+	{
+		str += (num % n);
+	}
+	else
+	{
+		str += (converter[num%n]);
+	}
 }
 function toNaryString(num, n) {
 	str = "";

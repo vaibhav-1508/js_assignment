@@ -13,15 +13,15 @@ This function should return a list of all the distinct characters in UPPERCASE t
 function getCharacters() {
 	let msg = document.getElementById("message").value;
 	let str = [];
-	console.log(msg.length);
 	for(let i=0; i<msg.length; i++)
 	{
-		if(str.includes(msg[i]) == false && msg[i]!= " ")
+		if(!str.includes(msg[i]))
 		{
 			str.push(msg[i].toUpperCase());
 		}
 	}
-	return str;
+	
+	return str.filter(elmt => elmt!=" ");
 }
 
 /* 
@@ -68,6 +68,9 @@ async function illuminateLight(index) {
 	{
 		await setCSS(message[i]);
 	}
+	// message.forEach(async function illumine(element) {
+	// 	await setCSS(element)
+	// });
 	/*
     TODO: Can the setCSS function asynchronously for each character present in the message array
     */

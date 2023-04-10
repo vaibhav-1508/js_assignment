@@ -11,8 +11,7 @@
  *    [0, 1, 2, 3, 4, 5], 5    => 5
  */
 function findElement(arr, value) {
-	
-		return arr.indexOf(value);
+  return arr.indexOf(value);
 }
 
 /**
@@ -28,12 +27,11 @@ function findElement(arr, value) {
  *    [] => []
  */
 function doubleArray(arr) {
-	let n =arr.length;
-	for(let i=0; i<n;i++)
-	{
-		arr.push(arr[i]);
-	}
-	return arr;
+  let n = arr.length;
+  for (let i = 0; i < n; i++) {
+    arr.push(arr[i]);
+  }
+  return arr;
 }
 
 /**
@@ -48,7 +46,7 @@ function doubleArray(arr) {
  *    [] => []
  */
 function getArrayOfPositives(arr) {
-	return arr.filter(elmt => elmt>0);
+  return arr.filter((elmt) => elmt > 0);
 }
 
 /**
@@ -64,12 +62,18 @@ function getArrayOfPositives(arr) {
  *    [ 1, 2, 3, 4, 5, 'false' ]         => [ 1, 2, 3, 4, 5, 'false' ]
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
-function falsy(elmt)
-{
-	return ((elmt != false) && (elmt != '') && (elmt != null) && (elmt !=0) &&(elmt != undefined) && (("" +elmt)!= "NaN"));
+function falsy(elmt) {
+  return (
+    elmt != false &&
+    elmt != "" &&
+    elmt != null &&
+    elmt != 0 &&
+    elmt != undefined &&
+    "" + elmt != "NaN"
+  );
 }
 function removeFalsyValues(arr) {
-	return arr.filter(falsy);
+  return arr.filter(falsy);
 }
 
 /**
@@ -83,12 +87,8 @@ function removeFalsyValues(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-	let arr2=[];
-	for(let i=0;i<arr.length;i++)
-	{
-		arr2.push(arr[i].length);
-	}
-	return arr2;
+  let mapping = arr.map((str) => str.length);
+  return mapping;
 }
 
 /**
@@ -104,16 +104,14 @@ function getStringsLength(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-	let sum=0;
-	arr.forEach(elmt => sum += elmt);
-	return sum;
+  return arr.reduce((accSum, elmt) => accSum + elmt, 0);
 }
 
 module.exports = {
-	findElement,
-	doubleArray,
-	getArrayOfPositives,
-	removeFalsyValues,
-	getStringsLength,
-	getItemsSum,
+  findElement,
+  doubleArray,
+  getArrayOfPositives,
+  removeFalsyValues,
+  getStringsLength,
+  getItemsSum,
 };
