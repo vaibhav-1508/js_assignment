@@ -19,7 +19,15 @@
  *
  */
 function getFizzBuzz(num) {
-	throw new Error("Not implemented");
+  if (num % 3 === 0 && num % 5 === 0) {
+    return "FizzBuzz";
+  } else if (num % 3 === 0) {
+    return "Fizz";
+  } else if (num % 5 === 0) {
+    return "Buzz";
+  } else {
+    return num;
+  }
 }
 
 /**
@@ -34,7 +42,11 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
-	throw new Error("Not implemented");
+  let result = 1;
+  for (let i = 1; i <= n; i++) {
+    result *= i;
+  }
+  return result;
 }
 
 /**
@@ -50,7 +62,11 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-	throw new Error("Not implemented");
+  let result = 0;
+  for (let i = n1; i <= n2; i++) {
+    result += i;
+  }
+  return result;
 }
 
 /**
@@ -69,7 +85,10 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a, b, c) {
-	throw new Error("Not implemented");
+  if (a + b > c && b + c > a && c + a > b) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -85,7 +104,7 @@ function isTriangle(a, b, c) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
-	throw new Error("Not implemented");
+  return str.split("").reverse().join("");
 }
 
 /**
@@ -109,8 +128,31 @@ function reverseString(str) {
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
+// Super Duper Hard.
 function isBracketsBalanced(str) {
-	throw new Error("Not implemented");
+  const stack = [];
+  const pairs = {
+    "(": ")",
+    "[": "]",
+    "{": "}",
+    "<": ">",
+  };
+  for (let i = 0; i < str.length; i++) {
+    if (pairs[str[i]]) {
+      stack.push(str[i]);
+    } else if (
+      str[i] === ")" ||
+      str[i] === "]" ||
+      str[i] === "}" ||
+      str[i] === ">"
+    ) {
+      const last = stack.pop();
+      if (pairs[last] !== str[i]) {
+        return false;
+      }
+    }
+  }
+  return stack.length === 0;
 }
 
 /**
@@ -145,8 +187,101 @@ function isBracketsBalanced(str) {
  *
  */
 function timespanToHumanString(startDate, endDate) {
-	throw new Error("Not implemented");
-}
+	const oneSecond = 1000;
+	const oneMinute = oneSecond * 60;
+	const oneHour = oneMinute * 60;
+	const oneDay = oneHour * 24;
+	const oneMonth = oneDay * 30;
+	const oneYear = oneDay * 365;
+  
+	const timeDiff = endDate.getTime() - startDate.getTime();
+  
+	if (timeDiff <= 45 * oneSecond) {
+	  return "a few seconds ago";
+	}
+  
+	if (timeDiff <= 90 * oneSecond) {
+	  return "a minute ago";
+	}
+  
+	if (timeDiff <= 45 * oneMinute) {
+	  const minutes = Math.round((timeDiff - 1) / oneMinute);
+	  return `${minutes} minutes ago`;
+	}
+  
+	if (timeDiff <= 90 * oneMinute) {
+	  return "an hour ago";
+	}
+  
+	if (timeDiff <= 22 * oneHour) {
+	  const hours = Math.round((timeDiff - 1) / oneHour);
+	  return `${hours} hours ago`;
+	}
+  
+	if (timeDiff <= 36 * oneHour) {
+	  return "a day ago";
+	}
+  
+	if (timeDiff <= 25 * oneDay) {
+	  const days = Math.round((timeDiff - 1) / oneDay);
+	  return `${days} days ago`;
+	}
+  
+	if (timeDiff <= 45 * oneDay) {
+	  return "a month ago";
+	}
+  
+	if (timeDiff <= 345 * oneDay) {
+	  const months = Math.round((timeDiff - 1) / oneMonth);
+	  return `${months} months ago`;
+	}
+  
+	if (timeDiff <= 545 * oneDay) {
+	  return "a year ago";
+	}
+  
+	const years = Math.round((timeDiff - 1) / oneYear);
+	return `${years} years ago`;
+  }
+  
+//Super Super Super Hard
+// function timespanToHumanString(startTime, endTime) {
+//   const differenceInSeconds = Math.floor((endTime - startTime) / 1000);
+//   const differenceInMinutes = Math.floor(differenceInSeconds / 60);
+//   const differenceInHours = Math.floor(differenceInMinutes / 60);
+//   const differenceInDays = Math.floor(differenceInHours / 24);
+//   const differenceInMonths = Math.floor(differenceInDays / 30);
+//   const differenceInYears = Math.floor(differenceInMonths / 12);
+
+//   if (differenceInSeconds == 45) {
+//     return "a few seconds ago";
+//   } else if (differenceInSeconds > 45 && differenceInSeconds <= 90) {
+//     return "a minute ago";
+//   } else if (Math.ceil(differenceInSeconds) <= 45) {
+//     return "a few seconds ago";
+//   } else if (differenceInSeconds > 90 && differenceInSeconds <= 120) {
+//     return `2 minutes ago`;
+//   } else if (differenceInMinutes <= 45) {
+//     return `${Math.floor(differenceInMinutes)} minutes ago`;
+//   } else if (differenceInMinutes >= 45 && differenceInMinutes <= 90) {
+//     return "an hour ago";
+//   } else if (differenceInHours <= 22) {
+//     return `${Math.ceil(differenceInMinutes) / 60} hours ago`;
+//   } else if (differenceInHours > 22 && differenceInHours <= 24) {
+//     return "a day ago";
+//   } else if (differenceInDays <= 25) {
+//     return `${Math.ceil(differenceInDays)} days ago`;
+//   } else if (differenceInDays > 25 && differenceInDays <= 45) {
+//     return "a month ago";
+//   } else if (differenceInDays >= 45 && differenceInDays <= 345) {
+//     return `${Math.ceil(differenceInDays / 30)} months ago`;
+//   } else if (differenceInDays >= 345 && differenceInDays <= 545) {
+//     return "a year ago";
+//   } else {
+//     return `${Math.ceil(differenceInDays / 30)} years ago`;
+//   }
+// }
+
 
 /**
  * Returns the string with n-ary (binary, ternary, etc, where n<=10) representation of
@@ -169,16 +304,27 @@ function timespanToHumanString(startDate, endDate) {
  *    365, 10 => '365'
  */
 function toNaryString(num, n) {
-	throw new Error("Not implemented");
+  if (n < 2 || n > 10) {
+    throw new Error("Radix must be between 2 and 10");
+  }
+  if (num === 0) {
+    return "0";
+  }
+  let result = "";
+  while (num > 0) {
+    result = (num % n) + result;
+    num = Math.floor(num / n);
+  }
+  return result;
 }
 
 module.exports = {
-	getFizzBuzz,
-	getFactorial,
-	getSumBetweenNumbers,
-	isTriangle,
-	reverseString,
-	isBracketsBalanced,
-	timespanToHumanString,
-	toNaryString,
+  getFizzBuzz,
+  getFactorial,
+  getSumBetweenNumbers,
+  isTriangle,
+  reverseString,
+  isBracketsBalanced,
+  timespanToHumanString,
+  toNaryString,
 };
