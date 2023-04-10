@@ -8,7 +8,7 @@ To run the project:
 2. Install [NodeJS](https://nodejs.org/en) on your system.
 3. Run `npm i`.
 4. Solve the tasks!
-5. You can view your progress by running the command `npm run test` and then viewing the file `index.html`!
+5. You can view your progress by running the command `npm run test` and then viewing the file `test.html`!
 6. When done, push the same to GitHub and create a Pull Request to submit your work.
 
 ## How to implement assignments
