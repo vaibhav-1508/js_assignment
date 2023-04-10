@@ -134,10 +134,10 @@ function reverseString(str) {
  */
 
 let mapping = {
-    ']':'[',
-    '}':'{',
-    ')':'(',
-    '>':'<'
+	']': '[',
+	'}': '{',
+	')': '(',
+	'>': '<'
 }
 let closed = ["]", "}", ")", ">"];
 let open = ["[", "{", "(", "<"];
@@ -147,29 +147,23 @@ function isBracketsBalanced(str) {
 		return true;
 	}
 	let stck = [];
-    for(let i=0; i<n;i++)
-    {
-        if(open.includes(str[i]))
-        {
-            stck.push(str[i]);
-        }
-        if(closed.includes(str[i]))
-        {
-            if(stck[stck.length-1] == mapping[str[i]])
-            {
-                stck = stck.slice(0,stck.length-1);
-                continue;
-            }
-            else
-            {
-                return false;
-            }
-        }
-    }
-    if(stck.length == 0)
-    {
-        return true;
-    }
+	for (let i = 0; i < n; i++) {
+		if (open.includes(str[i])) {
+			stck.push(str[i]);
+		}
+		if (closed.includes(str[i])) {
+			if (stck[stck.length - 1] == mapping[str[i]]) {
+				stck = stck.slice(0, stck.length - 1);
+				continue;
+			}
+			else {
+				return false;
+			}
+		}
+	}
+	if (stck.length == 0) {
+		return true;
+	}
 	return false;
 }
 
@@ -207,10 +201,80 @@ function isBracketsBalanced(str) {
  *   Date('2000-01-01 01:00:00.100'), Date('2015-01-02 03:00:05.000')  => '15 years ago'
  *
  */
+
 function timespanToHumanString(startDate, endDate) {
-
+	let date1 = startDate;
+	let date2 = endDate;
+	let sec1 = date1.valueOf();
+	let sec2 = date2.valueOf();
+	let secGap = (sec2 - sec1) / 1000;
+	let minGap = secGap / 60;
+	let hrGap = minGap / 60;
+	let dayGap = hrGap / 24;
+	let monthGap = dayGap / 30;
+	let yrGap = monthGap / 12;
+	if (secGap <= 45) {
+		return "a few seconds ago";
+	}
+	else if (secGap <= 90) {
+		return "a minute ago";
+	}
+	else if (minGap <= 45) {
+		//Say if 1.5 < minGap < 2.5 then ans will be floor of minGap + 0.5
+		//but if minGap = 2.5 then minGap + 0.5 ka floor will be 3. But it should be 2
+		//so seperately check if minGap is like 2.5 directly ans will be floor of minGap
+		if (minGap != Math.floor(minGap) + 0.5) {
+			return `${Math.floor(minGap + 0.5)} minutes ago`;
+		}
+		else {
+			return `${Math.floor(minGap)} minutes ago`
+		}
+	}
+	else if (minGap <= 90) {
+		return "an hour ago";
+	}
+	else if (hrGap <= 22) {
+		if (hrGap != Math.floor(hrGap) + 0.5) {
+			return `${Math.floor(hrGap + 0.5)} hours ago`;
+		}
+		else {
+			return `${Math.floor(hrGap)} hours ago`
+		}
+	}
+	else if (hrGap <= 36) {
+		return "a day ago";
+	}
+	else if (dayGap <= 25) {
+		if (dayGap != Math.floor(dayGap) + 0.5) {
+			return `${Math.floor(dayGap + 0.5)} days ago`;
+		}
+		else {
+			return `${Math.floor(dayGap)} days ago`
+		}
+	}
+	else if (dayGap <= 45) {
+		return "a month ago";
+	}
+	else if (dayGap <= 345) {
+		if (monthGap != Math.floor(monthGap) + 0.5) {
+			return `${Math.floor(monthGap + 0.5)} months ago`;
+		}
+		else {
+			return `${Math.floor(monthGap)} months ago`
+		}
+	}
+	else if (dayGap <= 545) {
+		return "a year ago";
+	}
+	else {
+		if (yrGap != Math.floor(yrGap) + 0.5) {
+			return `${Math.floor(yrGap + 0.5)} years ago`;
+		}
+		else {
+			return `${Math.floor(yrGap)} years ago`
+		}
+	}
 }
-
 /**
  * Returns the string with n-ary (binary, ternary, etc, where n<=10) representation of
  * specified number.
@@ -246,13 +310,11 @@ function generate(num, n) {
 		return;
 	}
 	generate(Math.floor(num / n), n);
-	if(num%n < 10)
-	{
+	if (num % n < 10) {
 		str += (num % n);
 	}
-	else
-	{
-		str += (converter[num%n]);
+	else {
+		str += (converter[num % n]);
 	}
 }
 function toNaryString(num, n) {
