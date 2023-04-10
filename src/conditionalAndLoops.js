@@ -190,7 +190,7 @@ function isBracketsBalanced(str) {
  */
 function timespanToHumanString(startDate, endDate) {
 	let interval=(endDate.valueOf()-startDate.valueOf())*0.001
-	
+	console.log(interval)
 
 	if(interval>0 && interval <=45)
 	return "a few seconds ago"
@@ -198,25 +198,50 @@ function timespanToHumanString(startDate, endDate) {
 
 	if(interval>45 && interval<=90)
 	return "a minute ago"
-	if(interval>90 && interval<=120)
-	return "2 minutes ago"
-	if(interval>120 && interval<=(45*60))
-	return `${Math.floor(interval/60)} minutes ago`
+	if(interval>90 && interval<=(45*60))
+	return `${Math.floor(Math.ceil(interval/30)/2)} minutes ago`
 
 
 	
 	if(interval>45*60  && interval <=90*60)
 	return "an hour ago"
-	if(interval>90*60 && interval<=(120*60))
-	return `2 hours ago`
-
-	if(interval>120*60 && interval<=(22*60*60))
+	if(interval>90*60 && interval<=(22*60*60))
 	{
-		
+		let halfhrs=interval/1800
+		//console.log(Math.ceil(halfhrs))
+		return `${Math.floor(Math.ceil(halfhrs)/2)} hours ago`
 	}
-	if(interval>22*60*60 && interval< 36*60*60)
-	return "a day ago"
+	if(interval>22*60*60 && interval<= 36*60*60)
+	{
+		return "a day ago"
+	}
+	if(interval>36*60*60 &&  interval<=25*24*60*60)
+	{
+		let halfdays=interval/(12*60*60);
+		console.log(halfdays)
+		return `${Math.floor(Math.ceil(halfdays)/2)} days ago`
+	}
+	if(interval>25*24*60*60 && interval<=45*24*60*60)
+	{
+		return "a month ago"
+	}
+	if(interval>45*24*60*60 && interval<=345*24*60*60)
+	{
+		let halfmonths=interval/(15*24*60*60);
+		console.log(halfmonths)
+		return `${Math.floor(Math.ceil(halfmonths)/2)} months ago`
+	}
+	if(interval>345*24*60*60 && interval<=545*24*60*60)
+	{
+		return "a year ago"
+	}
+	if(interval>545*24*60*60)
+	{
+		let yrs=Math.ceil(Math.floor(interval/(365*24*60*60)))
+		return `${yrs} years ago`
+	}
 }
+
 /**
  * Returns the string with n-ary (binary, ternary, etc, where n<=10) representation of
  * specified number.
