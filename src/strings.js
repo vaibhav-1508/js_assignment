@@ -11,7 +11,7 @@
  *   '',  'bb'  => 'bb'
  */
 function concatenateStrings(value1, value2) {
-	throw new Error("Not implemented");
+	return String(value1) + String(value2);
 }
 
 /**
@@ -26,7 +26,7 @@ function concatenateStrings(value1, value2) {
  *   ''      => 0
  */
 function getStringLength(value) {
-	throw new Error("Not implemented");
+	return value.length;
 }
 
 /**
@@ -40,7 +40,7 @@ function getStringLength(value) {
  *   'cat'       => 'c'
  */
 function getFirstChar(value) {
-	throw new Error("Not implemented");
+	return value[0];
 }
 
 /**
@@ -55,7 +55,8 @@ function getFirstChar(value) {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(value) {
-	throw new Error("Not implemented");
+	let val = value.trim();
+	return val;
 }
 
 /**
@@ -70,7 +71,11 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'cat', 3 => 'catcatcat'
  */
 function repeatString(value, count) {
-	throw new Error("Not implemented");
+	let val = '';
+	for(let i = 1; i <= count ; i++) {
+		val += value;
+	}
+	return val;
 }
 
 /**
@@ -86,7 +91,10 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-	throw new Error("Not implemented");
+	let index = str.indexOf(value);
+	let a = str.slice(0, index)
+	let b = str.slice(index + value.length) 
+	return a + b;
 }
 
 /**
@@ -100,7 +108,7 @@ function removeFirstOccurrences(str, value) {
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
 function convertToUpperCase(str) {
-	throw new Error("Not implemented");
+	return str.toUpperCase();
 }
 
 /**
@@ -120,7 +128,24 @@ function convertToUpperCase(str) {
  *
  */
 function encodeToRot13(str) {
-	throw new Error("Not implemented");
+	let result = '';
+  
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+    let charCode = str.charCodeAt(i);
+    
+    if (char.match(/[a-z]/i)) {
+      if ((charCode >= 65 && charCode <= 77) || (charCode >= 97 && charCode <= 109)) {
+        char = String.fromCharCode(charCode + 13);
+      } else {
+        char = String.fromCharCode(charCode - 13);
+      }
+    }
+    
+    result += char;
+  }
+  
+  return result;
 }
 
 module.exports = {

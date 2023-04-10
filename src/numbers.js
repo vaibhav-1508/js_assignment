@@ -10,13 +10,14 @@
  *   5, 5  => 25
  */
 function getRectangleArea(width, height) {
-	throw new Error("Not implemented");
+	// throw new Error("Not implemented");
+	return (width * height);
 }
 
 /**
  * Returns an average of two given numbers.
  *
- * @param {numder} value1
+ * @param {number} value1
  * @param {number} value2
  * @return {number}
  *
@@ -26,7 +27,7 @@ function getRectangleArea(width, height) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-	throw new Error("Not implemented");
+	return value1 + (value2 - value1)/2;
 }
 
 /**
@@ -42,8 +43,12 @@ function getAverage(value1, value2) {
  *   5*x = 0         => 0
  */
 function getLinearEquationRoot(a, b) {
-	throw new Error("Not implemented");
-}
+	if(b == 0) return 0;
+	else {
+		return -b / a;
+	}
+  }
+  
 
 /**
  * Returns a last digit of a integer number.
@@ -58,7 +63,8 @@ function getLinearEquationRoot(a, b) {
  *     0     => 0
  */
 function getLastDigit(value) {
-	throw new Error("Not implemented");
+	// throw new Error("Not implemented");
+	return Math.abs(value%10);
 }
 
 /**
@@ -73,9 +79,10 @@ function getLastDigit(value) {
  * '-525.5'     => -525.5
  */
 function parseNumberFromString(value) {
-	throw new Error("Not implemented");
-}
+	return parseFloat(value);
+  }
 
+  
 /**
  * Returns true is the number is prime; otherwise false.
  * See: https://en.wikipedia.org/wiki/Primality_test
@@ -94,8 +101,20 @@ function parseNumberFromString(value) {
  *   17 => true
  */
 function isPrime(n) {
-	throw new Error("Not implemented");
-}
+	if (n <= 1) {
+	  return false;
+	}
+	
+	const limit = Math.sqrt(n);
+	for (let i = 2; i <= limit; i++) {
+	  if (n % i === 0) {
+		return false;
+	  }
+	}
+	
+	return true;
+  }
+  
 
 module.exports = {
 	getRectangleArea,
