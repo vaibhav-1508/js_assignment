@@ -220,58 +220,60 @@ function timespanToHumanString(startDate, endDate) {
 		return "a minute ago";
 	}
 	else if (minGap <= 45) {
-		//Say if 1.5 < minGap < 2.5 then ans will be floor of minGap + 0.5
-		//but if minGap = 2.5 then minGap + 0.5 ka floor will be 3. But it should be 2
-		//so seperately check if minGap is like 2.5 directly ans will be floor of minGap
-		if (minGap != Math.floor(minGap) + 0.5) {
-			return `${Math.floor(minGap + 0.5)} minutes ago`;
+		let x = Math.round(minGap);
+		if (x - minGap != 0.5) {
+			return `${x} minutes ago`;
 		}
 		else {
-			return `${Math.floor(minGap)} minutes ago`
+			return `${x-1} minutes ago`
 		}
 	}
 	else if (minGap <= 90) {
 		return "an hour ago";
 	}
 	else if (hrGap <= 22) {
-		if (hrGap != Math.floor(hrGap) + 0.5) {
-			return `${Math.floor(hrGap + 0.5)} hours ago`;
+		let x = Math.round(hrGap);
+		if (x - hrGap != 0.5) {
+			return `${x} hours ago`;
 		}
 		else {
-			return `${Math.floor(hrGap)} hours ago`
+			return `${x-1} hours ago`
 		}
 	}
 	else if (hrGap <= 36) {
 		return "a day ago";
 	}
 	else if (dayGap <= 25) {
-		if (dayGap != Math.floor(dayGap) + 0.5) {
-			return `${Math.floor(dayGap + 0.5)} days ago`;
+		let x = Math.round(dayGap);
+		if (x - dayGap != 0.5) {
+			return `${x} days ago`;
 		}
 		else {
-			return `${Math.floor(dayGap)} days ago`
+			return `${x-1} days ago`
 		}
 	}
 	else if (dayGap <= 45) {
 		return "a month ago";
 	}
 	else if (dayGap <= 345) {
-		if (monthGap != Math.floor(monthGap) + 0.5) {
-			return `${Math.floor(monthGap + 0.5)} months ago`;
+		let x = Math.round(monthGap);
+		if (x - monthGap != 0.5) {
+			return `${x} months ago`;
 		}
 		else {
-			return `${Math.floor(monthGap)} months ago`
+			return `${x-1} months ago`
 		}
 	}
 	else if (dayGap <= 545) {
 		return "a year ago";
 	}
 	else {
-		if (yrGap != Math.floor(yrGap) + 0.5) {
-			return `${Math.floor(yrGap + 0.5)} years ago`;
+		let x = Math.round(yrGap);
+		if (x - yrGap != 0.5) {
+			return `${x} years ago`;
 		}
 		else {
-			return `${Math.floor(yrGap)} years ago`
+			return `${x-1} years ago`
 		}
 	}
 }
