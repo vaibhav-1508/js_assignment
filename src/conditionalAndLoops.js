@@ -19,7 +19,18 @@
  *
  */
 function getFizzBuzz(num) {
-	throw new Error("Not implemented");
+	if (num % 15 == 0) {
+		return "FizzBuzz";
+	}
+	else if (num % 3 == 0) {
+		return "Fizz";
+	}
+	else if (num % 5 == 0) {
+		return "Buzz";
+	}
+	else {
+		return num;
+	}
 }
 
 /**
@@ -34,7 +45,11 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
-	throw new Error("Not implemented");
+	let f = 1;
+	for (let i = 1; i <= n; i++) {
+		f *= i;
+	}
+	return f;
 }
 
 /**
@@ -50,7 +65,11 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-	throw new Error("Not implemented");
+	let sum = 0;
+	for (let i = n1; i <= n2; i++) {
+		sum += i;
+	}
+	return sum;
 }
 
 /**
@@ -69,7 +88,12 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a, b, c) {
-	throw new Error("Not implemented");
+	if ((a + b > c && b + c > a && a + c > b)) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 /**
@@ -85,7 +109,11 @@ function isTriangle(a, b, c) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
-	throw new Error("Not implemented");
+	let s = "";
+	for (let i = str.length - 1; i >= 0; i--) {
+		s += str[i];
+	}
+	return s;
 }
 
 /**
@@ -109,9 +137,49 @@ function reverseString(str) {
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
-function isBracketsBalanced(str) {
-	throw new Error("Not implemented");
+
+let mapping = {
+    ']':'[',
+    '}':'{',
+    ')':'(',
+    '>':'<'
 }
+let closed = ["]", "}", ")", ">"];
+let open = ["[", "{", "(", "<"];
+function isBracketsBalanced(str) {
+	let n = str.length;
+	if (str == "") {
+		return true;
+	}
+	let stck = [];
+    for(let i=0; i<n;i++)
+    {
+        if(open.includes(str[i]))
+        {
+            stck.push(str[i]);
+        }
+        if(closed.includes(str[i]))
+        {
+            if(stck[stck.length-1] == mapping[str[i]])
+            {
+                stck = stck.slice(0,stck.length-1);
+                continue;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+    if(stck.length == 0)
+    {
+        return true;
+    }
+	return false;
+}
+
+
+
 
 /**
  * Returns the human readable string of time period specified by the start and end time.
@@ -145,7 +213,7 @@ function isBracketsBalanced(str) {
  *
  */
 function timespanToHumanString(startDate, endDate) {
-	throw new Error("Not implemented");
+
 }
 
 /**
@@ -168,9 +236,21 @@ function timespanToHumanString(startDate, endDate) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(num, n) {
-	throw new Error("Not implemented");
+let str = "";
+function generate(num, n) {
+	if (num < n) {
+		str += num;
+		return;
+	}
+	generate(Math.floor(num / n), n);
+	str += (num % n);
 }
+function toNaryString(num, n) {
+	str = "";
+	generate(num, n, str);
+	return str;
+}
+
 
 module.exports = {
 	getFizzBuzz,

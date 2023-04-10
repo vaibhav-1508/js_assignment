@@ -11,7 +11,8 @@
  *   '',  'bb'  => 'bb'
  */
 function concatenateStrings(value1, value2) {
-	throw new Error("Not implemented");
+	const ans = value1 + value2;
+	return ans;
 }
 
 /**
@@ -26,7 +27,7 @@ function concatenateStrings(value1, value2) {
  *   ''      => 0
  */
 function getStringLength(value) {
-	throw new Error("Not implemented");
+	return value.length;
 }
 
 /**
@@ -40,7 +41,7 @@ function getStringLength(value) {
  *   'cat'       => 'c'
  */
 function getFirstChar(value) {
-	throw new Error("Not implemented");
+	return value[0];
 }
 
 /**
@@ -55,7 +56,7 @@ function getFirstChar(value) {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(value) {
-	throw new Error("Not implemented");
+	return value.trim();
 }
 
 /**
@@ -70,7 +71,12 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'cat', 3 => 'catcatcat'
  */
 function repeatString(value, count) {
-	throw new Error("Not implemented");
+	let str = "";
+	for(let i=0; i<count; i++)
+	{
+		str += value;
+	}
+	return str;
 }
 
 /**
@@ -86,7 +92,9 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-	throw new Error("Not implemented");
+	// throw new Error("Not implemented");
+	let ind = str.indexOf(value);
+	return (str.slice(0,ind) + str.slice(ind+(value.length),str.length));
 }
 
 /**
@@ -100,7 +108,7 @@ function removeFirstOccurrences(str, value) {
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
 function convertToUpperCase(str) {
-	throw new Error("Not implemented");
+	return str.toUpperCase();
 }
 
 /**
@@ -119,9 +127,46 @@ function convertToUpperCase(str) {
  *          'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(str) {
-	throw new Error("Not implemented");
+function ascii(a)
+{
+	return a.charCodeAt(0);
 }
+function char(c)
+{
+	return String.fromCharCode(c);
+}
+function encodeToRot13(str) {
+    let strcopy = "";
+	for(let i=0; i<str.length;i++){
+		let transform = ascii(str.charAt(i)) + 13;
+        let x = str.charAt(i);
+		if(ascii(x) >= ascii("A") && ascii(x) <= ascii("Z"))
+        {
+            if(transform <= ascii("Z"))
+            {
+                x = char(transform);
+            }
+            else
+            {
+                x = char(transform - ascii("Z") + ascii("A") -1);
+            }
+        }
+        else if(ascii(x) >= ascii("a") && ascii(x) <= ascii("z"))
+        {
+            if(transform <= ascii("z"))
+            {
+                x = char(transform);
+            }
+            else
+            {
+                x = char(transform - ascii("z") + ascii("a") -1);
+            }
+        }
+        strcopy += x;
+	};
+	return strcopy;
+}
+
 
 module.exports = {
 	concatenateStrings,
