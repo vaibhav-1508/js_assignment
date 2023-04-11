@@ -19,7 +19,18 @@
  *
  */
 function getFizzBuzz(num) {
-	throw new Error("Not implemented");
+	if (num % 15 == 0) {
+		return "FizzBuzz";
+	}
+	else if (num % 3 == 0) {
+		return "Fizz";
+	}
+	else if (num % 5 == 0) {
+		return "Buzz";
+	}
+	else {
+		return num;
+	}
 }
 
 /**
@@ -34,7 +45,11 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
-	throw new Error("Not implemented");
+	let f = 1;
+	for (let i = 1; i <= n; i++) {
+		f *= i;
+	}
+	return f;
 }
 
 /**
@@ -50,7 +65,11 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-	throw new Error("Not implemented");
+	let sum = 0;
+	for (let i = n1; i <= n2; i++) {
+		sum += i;
+	}
+	return sum;
 }
 
 /**
@@ -69,7 +88,7 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a, b, c) {
-	throw new Error("Not implemented");
+	return (a + b > c && b + c > a && a + c > b);
 }
 
 /**
@@ -85,7 +104,11 @@ function isTriangle(a, b, c) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
-	throw new Error("Not implemented");
+	let s = "";
+	for (let i = str.length - 1; i >= 0; i--) {
+		s += str[i];
+	}
+	return s;
 }
 
 /**
@@ -109,9 +132,43 @@ function reverseString(str) {
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
-function isBracketsBalanced(str) {
-	throw new Error("Not implemented");
+
+let mapping = {
+	']': '[',
+	'}': '{',
+	')': '(',
+	'>': '<'
 }
+let closed = ["]", "}", ")", ">"];
+let open = ["[", "{", "(", "<"];
+function isBracketsBalanced(str) {
+	let n = str.length;
+	if (str == "") {
+		return true;
+	}
+	let stck = [];
+	for (let i = 0; i < n; i++) {
+		if (open.includes(str[i])) {
+			stck.push(str[i]);
+		}
+		if (closed.includes(str[i])) {
+			if (stck[stck.length - 1] == mapping[str[i]]) {
+				stck = stck.slice(0, stck.length - 1);
+				continue;
+			}
+			else {
+				return false;
+			}
+		}
+	}
+	if (stck.length == 0) {
+		return true;
+	}
+	return false;
+}
+
+
+
 
 /**
  * Returns the human readable string of time period specified by the start and end time.
@@ -144,10 +201,82 @@ function isBracketsBalanced(str) {
  *   Date('2000-01-01 01:00:00.100'), Date('2015-01-02 03:00:05.000')  => '15 years ago'
  *
  */
-function timespanToHumanString(startDate, endDate) {
-	throw new Error("Not implemented");
-}
 
+function timespanToHumanString(startDate, endDate) {
+	let date1 = startDate;
+	let date2 = endDate;
+	let sec1 = date1.valueOf();
+	let sec2 = date2.valueOf();
+	let secGap = (sec2 - sec1) / 1000;
+	let minGap = secGap / 60;
+	let hrGap = minGap / 60;
+	let dayGap = hrGap / 24;
+	let monthGap = dayGap / 30;
+	let yrGap = monthGap / 12;
+	if (secGap <= 45) {
+		return "a few seconds ago";
+	}
+	else if (secGap <= 90) {
+		return "a minute ago";
+	}
+	else if (minGap <= 45) {
+		let x = Math.round(minGap);
+		if (x - minGap != 0.5) {
+			return `${x} minutes ago`;
+		}
+		else {
+			return `${x-1} minutes ago`
+		}
+	}
+	else if (minGap <= 90) {
+		return "an hour ago";
+	}
+	else if (hrGap <= 22) {
+		let x = Math.round(hrGap);
+		if (x - hrGap != 0.5) {
+			return `${x} hours ago`;
+		}
+		else {
+			return `${x-1} hours ago`
+		}
+	}
+	else if (hrGap <= 36) {
+		return "a day ago";
+	}
+	else if (dayGap <= 25) {
+		let x = Math.round(dayGap);
+		if (x - dayGap != 0.5) {
+			return `${x} days ago`;
+		}
+		else {
+			return `${x-1} days ago`
+		}
+	}
+	else if (dayGap <= 45) {
+		return "a month ago";
+	}
+	else if (dayGap <= 345) {
+		let x = Math.round(monthGap);
+		if (x - monthGap != 0.5) {
+			return `${x} months ago`;
+		}
+		else {
+			return `${x-1} months ago`
+		}
+	}
+	else if (dayGap <= 545) {
+		return "a year ago";
+	}
+	else {
+		let x = Math.round(yrGap);
+		if (x - yrGap != 0.5) {
+			return `${x} years ago`;
+		}
+		else {
+			return `${x-1} years ago`
+		}
+	}
+}
 /**
  * Returns the string with n-ary (binary, ternary, etc, where n<=10) representation of
  * specified number.
@@ -168,9 +297,34 @@ function timespanToHumanString(startDate, endDate) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(num, n) {
-	throw new Error("Not implemented");
+let str = "";
+let converter = {
+	10: "a",
+	11: "b",
+	12: "c",
+	13: "d",
+	14: "e",
+	15: "f"
 }
+function generate(num, n) {
+	if (num < n) {
+		str += num;
+		return;
+	}
+	generate(Math.floor(num / n), n);
+	if (num % n < 10) {
+		str += (num % n);
+	}
+	else {
+		str += (converter[num % n]);
+	}
+}
+function toNaryString(num, n) {
+	str = "";
+	generate(num, n, str);
+	return str;
+}
+
 
 module.exports = {
 	getFizzBuzz,
