@@ -15,6 +15,6 @@ function bulb_on() {}
 
 /*
 TODO:
-Set the "bulb" element's Image src to be the image specified by BULB_ON_URL
+Set the "bulb" element's Image src to be the image specified by BULB_OFF_URL
 */
 function bulb_off() {}
